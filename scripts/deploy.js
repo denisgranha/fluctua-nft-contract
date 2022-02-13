@@ -21,7 +21,8 @@ async function main() {
 
   // This solves the bug in Mumbai network where the contract address is not the real one
   const txHash = rumiaNFT.deployTransaction.hash;
-  console.log(`Tx hash: ${txHash}\nWaiting for transaction to be mined...`);
+  const from = rumiaNFT.deployTransaction.from;
+  console.log(`Tx hash: ${txHash}\nWaiting for transaction to be mined... from: ${from}`);
   const txReceipt = await ethers.provider.waitForTransaction(txHash);
 
   console.log("RUMIA NFT deployed to:", txReceipt.contractAddress);
