@@ -23,6 +23,12 @@ contract RumiaNFT is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burnable,
         _setTokenURI(tokenId, uri);
     }
 
+    function safeMintBatch(address to, string[] memory uris) public onlyOwner {
+        for(uint256 i = 0; i < uris.length; i++) {
+            safeMint(to, uris[i]);
+        }
+    }
+
     // The following functions are overrides required by Solidity.
 
     function _beforeTokenTransfer(address from, address to, uint256 tokenId)
