@@ -14,7 +14,7 @@ contract RumiaNFT is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burnable,
 
     Counters.Counter private _tokenIdCounter;
 
-    constructor() ERC721("RumiaNFT", "RUMIA") {}
+    constructor() ERC721("Rumia", "RUMIA") {}
 
     function safeMint(address to, string memory uri) public onlyOwner {
         uint256 tokenId = _tokenIdCounter.current();
